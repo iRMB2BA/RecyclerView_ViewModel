@@ -12,8 +12,7 @@ class ItemAdapter : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     private var items: List<Item> = ArrayList()
 
-    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    }
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
             return ItemViewHolder(

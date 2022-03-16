@@ -1,16 +1,15 @@
 package com.example.recyclerview_viewmodel
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview_viewmodel.adapter.ItemAdapter
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var myViewModel : AndroidViewModel
+    private lateinit var myViewModel : AndroidViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,10 +20,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = ItemAdapter()
         findViewById<RecyclerView>(R.id.rv_item).adapter = adapter
 
-        (myViewModel as MainActivityViewModel).getListUsers().observe(this, Observer {
+        (myViewModel as MainActivityViewModel).getListUsers().observe(this) {
             it?.let {
                 adapter.refreshUsers(it)
             }
-        })
+        }
     }
 }
